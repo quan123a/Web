@@ -1,0 +1,256 @@
+:root {
+  --text-light: #f7f7f5;
+  --text-muted: #dfdfda;
+  --overlay: rgba(16, 20, 28, 0.5);
+  --accent: #ffffff;
+  --accent-dark: #111111;
+  --card-bg: rgba(255, 255, 255, 0.14);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--text-light);
+  background-color: #090c11;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 1rem 5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+
+.logo {
+  color: var(--text-light);
+  text-decoration: none;
+  letter-spacing: 0.2em;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nav-links a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: opacity 0.25s ease;
+}
+
+.nav-links a:hover {
+  opacity: 0.7;
+}
+
+.hero-section {
+  height: 100vh;
+  min-height: 640px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 8rem 5vw 3rem;
+  background-image: url("https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=2000&q=80");
+  background-size: cover;
+  background-position: center;
+  isolation: isolate;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--overlay);
+  z-index: -1;
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.hero-subtitle {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.4rem, 5vw, 5rem);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.italic-highlight {
+  font-style: italic;
+  font-weight: 700;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 0.75rem 1.4rem;
+  font-weight: 600;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: var(--accent-dark);
+}
+
+.btn-primary:hover {
+  background-color: #e7e7e1;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  color: var(--text-light);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.btn-secondary:hover {
+  background-color: var(--text-light);
+  color: #111;
+  transform: translateY(-2px);
+}
+
+.destination-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  width: min(28vw, 320px);
+}
+
+.card {
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--card-bg);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  display: block;
+  width: 100%;
+  height: 135px;
+  object-fit: cover;
+}
+
+.card-caption {
+  padding: 0.7rem 0.85rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.fade-in,
+.fade-in-delayed {
+  opacity: 0;
+  animation: fadeUp 0.9s ease forwards;
+}
+
+.fade-in-delayed {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-section {
+    flex-wrap: wrap;
+    align-content: center;
+    height: auto;
+    min-height: 100vh;
+    padding-top: 7rem;
+    padding-bottom: 2rem;
+  }
+
+  .destination-cards {
+    width: 100%;
+    max-width: 560px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    flex: 1 1 170px;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    padding: 0.9rem 1rem;
+    align-items: flex-start;
+    gap: 0.6rem;
+    flex-direction: column;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.2));
+  }
+
+  .nav-links {
+    gap: 0.7rem 1rem;
+  }
+
+  .hero-section {
+    padding: 8.2rem 1rem 1.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.78rem;
+  }
+
+  .hero-buttons {
+    width: 100%;
+  }
+
+  .btn {
+    text-align: center;
+    flex: 1 1 100%;
+  }
+
+  .destination-cards {
+    margin-top: 0.6rem;
+  }
+
+  .card img {
+    height: 120px;
+  }
+}
