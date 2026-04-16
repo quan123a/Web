@@ -68,7 +68,7 @@ body {
   justify-content: space-between;
   gap: 2rem;
   padding: 8rem 5vw 3rem;
-  background-image: url("https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=2000&q=80");
+  background-image: url("https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?auto=format&fit=crop&w=2000&q=80");
   background-size: cover;
   background-position: center;
   isolation: isolate;
@@ -97,12 +97,19 @@ h1 {
   font-family: "Playfair Display", serif;
   font-size: clamp(2.4rem, 5vw, 5rem);
   line-height: 1.1;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .italic-highlight {
   font-style: italic;
   font-weight: 700;
+}
+
+.hero-description {
+  max-width: 560px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
 }
 
 .hero-buttons {
@@ -154,6 +161,12 @@ h1 {
   background: var(--card-bg);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
   transition: transform 0.3s ease;
+}
+
+.card-link {
+  text-decoration: none;
+  color: var(--text-light);
+  display: block;
 }
 
 .card:hover {
@@ -235,6 +248,10 @@ h1 {
 
   .hero-subtitle {
     font-size: 0.78rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
   }
 
   .hero-buttons {
